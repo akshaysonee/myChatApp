@@ -5,7 +5,7 @@ import Message from "./Message";
 import { io } from "socket.io-client";
 
 // Initialize socket (do this once globally ideally, but okay for now)
-const socket = io(import.meta.env.PORT || "http://localhost:5000" , {
+const socket = io(import.meta.env.VITE_BACKEND_URL , {
   withCredentials: true,
 });
 
