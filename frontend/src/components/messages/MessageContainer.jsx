@@ -4,7 +4,7 @@ import useConversation from "../../zustand/useConversation";
 import { io } from "socket.io-client";
 
 // initialize socket only once
-const socket = io(import.meta.env.PORT || "http://localhost:5000" , {
+const socket = io(import.meta.env.VITE_BACKEND_URL , {
   withCredentials: true,
 });
 
