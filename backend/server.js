@@ -2,6 +2,7 @@ import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
@@ -15,6 +16,13 @@ dotenv.config();
 const __dirname = path.resolve();
  
 const PORT = process.env.PORT || 5000;
+
+const FRONTEND_URL = process.env.FRONTEND_URL || "https://your-frontend-on-render.com";
+
+app.use(cors({
+  origin: FRONTEND_URL,
+  credentials: true
+}));
 
 app.use(express.json()); 
 app.use(cookieParser());
